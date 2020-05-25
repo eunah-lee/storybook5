@@ -1,0 +1,101 @@
+body 
+{
+  /*background-image: url("https://cdn.glitch.com/69b80f7b-d037-4683-a9ca-4bca487042c3%2Ftest%20background.jpg?v=1589064010978");*/
+	background-color: #F7AA94; /*sets the window background colour*/
+	background-repeat: no-repeat;      /* repeat, no-repeat */
+	background-attachment: fixed;   /* scroll, fixed */
+	background-position: top left;  /* for no-repeat setting: top/bottom, left/right */
+	margin: 2% 5% 0% 5%;            /* top, left, bottom, right or TRBL */
+	
+	font-family: Georgia, Serif;	/* list font names in order of preference */
+	font-weight: normal;            /* normal, bold */
+	font-style: normal;             /* normal, italic */
+	font-variant: normal;           /* normal, small-caps */
+	font-size: 18px;                /* font size */
+	color: #000000;                 /* hexadecimal RGB color code */
+	text-decoration: none;          /* none, underline, overline, line-through */
+	text-align: left;               /* left, right, center, justify */
+}
+
+
+
+p1 {
+  position: absolute;
+  z-index: 2;
+}
+
+.ocean {
+  z-index: 1;
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  margin: 0 0 0 -480px;
+}
+
+.island {
+  z-index: 3;
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  margin: 0 0 0 -480px;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: white;
+  color: #006400;
+}
+
+.yeay {
+  width: 40px;
+  position: absolute;
+  top: 590px;
+  left: 50%;
+  margin: 0 0 0 410px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #006400;
+  color: white;
+}
+
+#pickupFlag {
+  z-index: 0;
+  position: absolute;
+  top: 150px;
+  left: 200px;
+  display: inline;
+  width: 87.6px;
+  height: 172.6px;
+}
+
+#dropoffFlag {
+  z-index: 0;
+  position: absolute;
+  top: 204px;
+  left: 614px;
+  display: inline;
+  width: 87.6px;
+  height: 172.6px;
+}
+
+#typeWriter {
+  z-index: 3;
+  position: absolute;
+  top: 540px;
+  left: 270px;
+}
+
+/*position the key so that the wave hides it*/
+#key {
+  z-index: 100;
+  position: absolute;
+  top: 390px;
+  left: 630px;
+  width: 30px;
+  height: 30px;
+}
