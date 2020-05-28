@@ -37,7 +37,7 @@ function initialize()
      renderer.setClearColor(new THREE.Color('white'), 0);//colour, transparancy
      renderer.setSize(myWidth, myHeight);
      //add jpeg background image and ocean gif as a background //first one goes on top
-     renderer.domElement.style.background = "url('https://cdn.glitch.com/6e4cacad-b07d-49e8-825c-d79cc354ec56%2Fscene3-silhuette.png?v=1590438650932'), url('images/scene3/scene3-wave-loop.gif'), url('images/scene3/scene3-background.png')";
+     renderer.domElement.style.background = "url('images/scene3/scene3.png'), url('images/scene3/scene3-wave-loop.gif'), url('images/scene3/scene3-background.png')";
      renderer.domElement.style.backgroundSize = "cover";   
      renderer.domElement.style.position = "absolute";
      renderer.domElement.style.top = "35px";
@@ -124,7 +124,7 @@ function initialize()
   
      //define a plane geometry that will seat on top of the marker  
      let geometry1 = new THREE.PlaneGeometry(0.8, 1.7, 1, 1); //width, height, widthsegmentation, heightsegmentation
-	   let texture1 = loader.load( 'images/scene3/scene3-flag-marker.png', render ); 
+	   let texture1 = loader.load( 'images/scene3/scene3-flag marker.png', render ); 
 	   let material1 = new THREE.MeshBasicMaterial( { map: texture1 } ); 
 	
 	   mesh1 = new THREE.Mesh( geometry1, material1 );
@@ -135,8 +135,8 @@ function initialize()
   
      //adding the second image - boat top - flip the image  
   
-     let geometry2 = new THREE.PlaneGeometry(3, 0.6, 1, 1);
-	   let texture2 = loader.load( 'images/scene3/scene3-boatTop-marker.png', render ); 
+     let geometry2 = new THREE.PlaneGeometry(3, 1.2, 1, 1);
+	   let texture2 = loader.load( 'images/scene3/scene3-boatTop marker.png', render ); 
 	   let material2 = new THREE.MeshBasicMaterial( { map: texture2 } ); 
 	
 	   mesh2 = new THREE.Mesh( geometry2, material2 );
@@ -147,8 +147,8 @@ function initialize()
   
      //adding the third image - boat base - flip the image  
   
-     let geometry3 = new THREE.PlaneGeometry(2.8, 1, 1, 1);
-	   let texture3 = loader.load( 'images/scene3/scene3-boatBase-marker.png', render ); 
+     let geometry3 = new THREE.PlaneGeometry(2.8, 1.1, 1, 1);
+	   let texture3 = loader.load( 'images/scene3/scene3-boatBase marker.png', render ); 
 	   let material3 = new THREE.MeshBasicMaterial( { map: texture3 } ); 
 	
 	   mesh3 = new THREE.Mesh( geometry3, material3 );

@@ -1,3 +1,5 @@
+/*scene3 css*/
+
 body 
 {
   /*background-image: url("https://cdn.glitch.com/69b80f7b-d037-4683-a9ca-4bca487042c3%2Ftest%20background.jpg?v=1589064010978");*/
@@ -90,17 +92,17 @@ a:hover {
   left: 540px;
   display: inline;
   width: 306px;
-  height: 67.6px;
+  height: 127.3px;
 }
 
 #dropoffBoatTop {
   z-index: 3;
   position: absolute;
-  top: 331px;
-  left: 575px;
+  top: 322px;
+  left: 570px;
   display: inline;
   width: 306px;
-  height: 67.6px;
+  height: 127.3px;
 }
 
 #pickupBoatBase {
@@ -109,17 +111,17 @@ a:hover {
   top: 190px;
   left: 900px;
   display: inline;
-  width: 282.3px;
-  height: 106.6px;
+  width: 284px;
+  height: 106.7px;
 }
 
 #dropoffBoatBase {
   z-index: 1;
   position: absolute;
   top: 345px;
-  left: 584px;
+  left: 579px;
   display: inline;
-  width: 282.4px;
+  width: 284px;
   height: 106.7px;
 }
 
@@ -128,14 +130,4 @@ a:hover {
   position: absolute;
   top: 540px;
   left: 270px;
-}
-
-/*position the key so that the wave hides it*/
-#key {
-  z-index: 100;
-  position: absolute;
-  top: 390px;
-  left: 630px;
-  width: 30px;
-  height: 30px;
 }

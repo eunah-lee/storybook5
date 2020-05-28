@@ -1,7 +1,9 @@
+/*scene4 css*/
+
 body 
 {
   /*background-image: url("https://cdn.glitch.com/69b80f7b-d037-4683-a9ca-4bca487042c3%2Ftest%20background.jpg?v=1589064010978");*/
-	background-color: #F7AA94; /*sets the window background colour*/
+	background-color: #70db70; /*sets the window background colour*/
 	background-repeat: no-repeat;      /* repeat, no-repeat */
 	background-attachment: fixed;   /* scroll, fixed */
 	background-position: top left;  /* for no-repeat setting: top/bottom, left/right */
@@ -24,14 +26,6 @@ p1 {
   z-index: 2;
 }
 
-.ocean {
-  z-index: 1;
-  position: absolute;
-  top: 35px;
-  left: 50%;
-  margin: 0 0 0 -480px;
-}
-
 .island {
   z-index: 3;
   position: absolute;
@@ -51,76 +45,39 @@ a:hover {
   color: #006400;
 }
 
-.button {
-  width: 70px;
+#video {  
+  z-index: 0;
+  width: 960;
+  height: 540;
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  /*centres the screen*/
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 240px;
+}
+
+.next {
+  width: 40px;
   position: absolute;
   top: 590px;
-  left: 689px;
+  left: 50%;
   margin: 0 0 0 410px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #FF7F50;
+  background-color: #006400;
   color: white;
 }
 
-#pickupFlag {
-  z-index: 0;
+#starfish {
   position: absolute;
-  top: 150px;
-  left: 360px;
-  display: inline;
-  width: 87.6px;
-  height: 172.6px;
-}
-
-#dropoffFlag {
-  z-index: 0;
-  position: absolute;
-  top: 204px;
-  left: 761px;
-  display: inline;
-  width: 87.6px;
-  height: 172.6px;
-}
-
-#pickupBoatTop {
-  z-index: 0;
-  position: absolute;
-  top: 60px;
-  left: 540px;
-  display: inline;
-  width: 306px;
-  height: 67.6px;
-}
-
-#dropoffBoatTop {
-  z-index: 3;
-  position: absolute;
-  top: 331px;
-  left: 575px;
-  display: inline;
-  width: 306px;
-  height: 67.6px;
-}
-
-#pickupBoatBase {
-  z-index: 0;
-  position: absolute;
-  top: 190px;
-  left: 900px;
-  display: inline;
-  width: 282.3px;
-  height: 106.6px;
-}
-
-#dropoffBoatBase {
-  z-index: 1;
-  position: absolute;
-  top: 345px;
-  left: 584px;
-  display: inline;
-  width: 282.4px;
-  height: 106.7px;
+  top: 240px;
+  left: 260px;
+  display: none;
+  height: 100px;
+  width: 100px;
 }
 
 #typeWriter {
@@ -128,14 +85,4 @@ a:hover {
   position: absolute;
   top: 540px;
   left: 270px;
-}
-
-/*position the key so that the wave hides it*/
-#key {
-  z-index: 100;
-  position: absolute;
-  top: 390px;
-  left: 630px;
-  width: 30px;
-  height: 30px;
 }

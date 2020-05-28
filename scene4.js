@@ -40,6 +40,7 @@ function initialize()
     renderer.domElement.style.top = "35px";
     renderer.domElement.style.left = "50%";
     renderer.domElement.style.margin = '0 0 0 -480px'; //centres the screen
+    renderer.domElement.style.zIndex = "4";//brings the renderer forward sothat it sits on top of the video background
     renderer.domElement.style.transform = "scaleX(-1)"; //flip the renderer Y axis(so that the user's motion is mirrored)
     //renderer.domElement.style.border = "2px, red";
     document.body.appendChild(renderer.domElement);
@@ -113,22 +114,6 @@ function initialize()
 	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
 		type: 'pattern', patternUrl: "data/hiro.patt",
 	})
-
-// 	let geometry1 = new THREE.PlaneBufferGeometry(2,2, 1,1); 
-//   //draw a plan ontop of the marker(width, height, width segments, height segments)
-
-//   //add video as texture to the plane
-// 	let video = document.getElementById( 'video' );
-// 	let texture = new THREE.VideoTexture( video );
-// 	texture.minFilter = THREE.LinearFilter;
-// 	texture.magFilter = THREE.LinearFilter;
-// 	texture.format = THREE.RGBFormat;
-// 	let material1 = new THREE.MeshBasicMaterial( { map: texture } );
-	
-// 	mesh1 = new THREE.Mesh( geometry1, material1 );
-// 	mesh1.rotation.x = -Math.PI/2;
-	
-// 	markerRoot.add( mesh1 );
   
   //define a plane geometry that will seat on top of the marker
   let geometry = new THREE.PlaneGeometry(2, 2, 2);
@@ -137,7 +122,7 @@ function initialize()
     //Add all the images that the marker will display and use a mesh.visible = true/false; to control
   
     //adding the fisrt image - empty boat
-	   let texture1 = loader.load( 'images/starfish.png', render ); 
+	   let texture1 = loader.load( 'images/scene4/scene4Boat.png', render ); 
 	   let material1 = new THREE.MeshBasicMaterial( { map: texture1 } ); 
 	
 	   mesh1 = new THREE.Mesh( geometry, material1 );
@@ -147,7 +132,7 @@ function initialize()
 	   markerRoot.add( mesh1 );
     
   //add second image - starfish on the boat
-  	 let texture2 = loader.load( 'images/scene3/scene3-wave-loop.gif', render );
+  	 let texture2 = loader.load( 'https://cdn.glitch.com/913f11f7-af89-448f-96fd-d7aec522c4c1%2Fscene4-hiro%20on%20boat.png?v=1590700293980', render );
 	   let material2 = new THREE.MeshBasicMaterial( { map: texture2 } );
 	
 	   mesh2 = new THREE.Mesh( geometry, material2 );
