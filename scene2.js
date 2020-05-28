@@ -2,7 +2,7 @@ var scene, camera, renderer, clock, deltaTime, totalTime;
 
 var arToolkitSource, arToolkitContext;
 
-var markerRoot1;
+var markerRoot;
 
 var mesh1, mesh2;
 
@@ -37,7 +37,7 @@ function initialize()
      renderer.setClearColor(new THREE.Color('white'), 0);//colour, transparancy
      renderer.setSize(myWidth, myHeight);
      //add jpeg background image and ocean gif as a background //first one goes on top
-     renderer.domElement.style.background = "url('https://cdn.glitch.com/9e683993-4654-4440-aa0c-591511309c68%2Fscene2-wave-loop.gif?v=1590433781998'), url('images/scene2/scene2-biggerfile-flip.png')";
+     renderer.domElement.style.background = "url('images/scene2/scene2-wave-loop.gif'), url('images/scene2/scene2-biggerfile-flip.png')";
      renderer.domElement.style.backgroundSize = "cover"; //make the image to fit the background size
      renderer.domElement.style.position = "absolute";
      renderer.domElement.style.top = "35px";
@@ -100,10 +100,10 @@ function initialize()
 //marker and graphic
 
 	// build markerControls
-	markerRoot1 = new THREE.Group();
-  markerRoot1.name = "marker1";
-	scene.add(markerRoot1);
-	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
+	markerRoot = new THREE.Group();
+  markerRoot.name = "marker1";
+	scene.add(markerRoot);
+	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
 		type: 'pattern', patternUrl: "data/hiro.patt",
 	})
 
@@ -122,7 +122,7 @@ function initialize()
 	mesh1 = new THREE.Mesh( geometry1, material1 ); //apply plane and video to marker mesh
 	mesh1.rotation.x = -Math.PI/2; //makes the maker surface to face the screen
 	
-	markerRoot1.add( mesh1 );
+	markerRoot.add( mesh1 );
   
 }
 
@@ -137,7 +137,7 @@ function update()
 function render()
 {
 	renderer.render( scene, camera );
-  console.log(markerRoot1.position);
+  console.log(markerRoot.position);
   
 }
 

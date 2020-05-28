@@ -2,7 +2,7 @@ var scene, camera, renderer, clock, deltaTime, totalTime;
 
 var arToolkitSource, arToolkitContext;
 
-var markerRoot1;
+var markerRoot;
 
 var mesh1, mesh2;
 
@@ -34,10 +34,8 @@ function initialize()
 	});
   
     // style of ar layer
-    renderer.setClearColor(new THREE.Color('white'), 0);//colour, transparancy
+    renderer.setClearColor(new THREE.Color('white'), 0);//colour, transparancy  //display the background as transparant to use the video beneath in html
     renderer.setSize(myWidth, myHeight);
-    renderer.domElement.style.backgroundImage = "url('images/scene2-background.jpg')";
-    renderer.domElement.style.backgroundSize = "cover";
     renderer.domElement.style.position = "absolute";
     renderer.domElement.style.top = "35px";
     renderer.domElement.style.left = "50%";
@@ -109,10 +107,10 @@ function initialize()
 //marker and graphic
 
 	// build markerControls
-	markerRoot1 = new THREE.Group();
-  markerRoot1.name = "marker1";
-	scene.add(markerRoot1);
-	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
+	markerRoot = new THREE.Group();
+  markerRoot.name = "marker1";
+	scene.add(markerRoot);
+	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
 		type: 'pattern', patternUrl: "data/hiro.patt",
 	})
 
@@ -130,7 +128,7 @@ function initialize()
 // 	mesh1 = new THREE.Mesh( geometry1, material1 );
 // 	mesh1.rotation.x = -Math.PI/2;
 	
-// 	markerRoot1.add( mesh1 );
+// 	markerRoot.add( mesh1 );
   
   //define a plane geometry that will seat on top of the marker
   let geometry = new THREE.PlaneGeometry(2, 2, 2);
@@ -146,17 +144,17 @@ function initialize()
 	   mesh1.position.y = 1;
      mesh1.rotation.x = -Math.PI/2; //rotate so that if faces the screen
 	
-	   markerRoot1.add( mesh1 );
+	   markerRoot.add( mesh1 );
     
   //add second image - starfish on the boat
-  	 let texture2 = loader.load( 'images/starfishOnBoat.png', render );
+  	 let texture2 = loader.load( 'images/scene3/scene3-wave-loop.gif', render );
 	   let material2 = new THREE.MeshBasicMaterial( { map: texture2 } );
 	
 	   mesh2 = new THREE.Mesh( geometry, material2 );
 	   mesh2.position.y = 1;
      mesh2.rotation.x = -Math.PI/2;
   
-     markerRoot1.add( mesh2 );
+     markerRoot.add( mesh2 );
   
   mesh1.visible = false; //hide
   mesh2.visible = true; //visible
@@ -181,9 +179,9 @@ function render()
 function position(){
   var starfish = document.getElementById("starfish");
   
-  if (markerRoot1.position.x > 1.5){
+  if (markerRoot.position.x > 1.5){
     console.log("reached the island");
-    console.log(markerRoot1.position);
+    console.log(markerRoot.position);
     starfish.style.display = 'block'; //change css image to display
     
     mesh1.visible = true; //the emptyboat is visible

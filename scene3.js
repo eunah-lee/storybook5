@@ -2,7 +2,7 @@ var scene, camera, renderer, clock, deltaTime, totalTime;
 
 var arToolkitSource, arToolkitContext;
 
-var markerRoot1;
+var markerRoot;
 
 var mesh1, mesh2;
 
@@ -37,7 +37,7 @@ function initialize()
      renderer.setClearColor(new THREE.Color('white'), 0);//colour, transparancy
      renderer.setSize(myWidth, myHeight);
      //add jpeg background image and ocean gif as a background //first one goes on top
-     renderer.domElement.style.background = "url('images/scene3/scene3-boatBackground.png'), url('images/scene3/scene3-wave-loop.gif'), url('images/scene3/scene3-background.png')";
+     renderer.domElement.style.background = "url('https://cdn.glitch.com/6e4cacad-b07d-49e8-825c-d79cc354ec56%2Fscene3-silhuette.png?v=1590438650932'), url('images/scene3/scene3-wave-loop.gif'), url('images/scene3/scene3-background.png')";
      renderer.domElement.style.backgroundSize = "cover";   
      renderer.domElement.style.position = "absolute";
      renderer.domElement.style.top = "35px";
@@ -100,10 +100,10 @@ function initialize()
 //marker and graphic
 
 	// build markerControls
-	markerRoot1 = new THREE.Group();
-  markerRoot1.name = "marker1";
-	scene.add(markerRoot1);
-	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
+	markerRoot = new THREE.Group();
+  markerRoot.name = "marker1";
+	scene.add(markerRoot);
+	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
 		type: 'pattern', patternUrl: "data/hiro.patt",
 	})
   
@@ -113,25 +113,55 @@ function initialize()
     wireframe: true
   });
   var mesh = new THREE.Mesh(geometry, material);
-  markerRoot1.add(mesh);
+  markerRoot.add(mesh);
 
-  //define a plane geometry that will seat on top of the marker  
-  let geometry1 = new THREE.PlaneGeometry(0.8, 1.7, 1, 1); //width, height, widthsegmentation, heightsegmentation
-	let loader = new THREE.TextureLoader();
+	   let loader = new THREE.TextureLoader();
+  
   
     //Add all the images that the marker will display and use a mesh.visible = true/false; to control
   
-    //adding the fisrt image - flag - flip the image
-	   let texture1 = loader.load( 'https://cdn.glitch.com/9e683993-4654-4440-aa0c-591511309c68%2Fscene3-flag-marker.png?v=1590434171743', render ); 
+     //adding the fisrt image - flag - flip the image
+  
+     //define a plane geometry that will seat on top of the marker  
+     let geometry1 = new THREE.PlaneGeometry(0.8, 1.7, 1, 1); //width, height, widthsegmentation, heightsegmentation
+	   let texture1 = loader.load( 'images/scene3/scene3-flag-marker.png', render ); 
 	   let material1 = new THREE.MeshBasicMaterial( { map: texture1 } ); 
 	
 	   mesh1 = new THREE.Mesh( geometry1, material1 );
 	   mesh1.position.y = 0.1;
      mesh1.rotation.x = -Math.PI/2; //rotate so that if faces the screen
 	
-	   markerRoot1.add( mesh1 );
+	   markerRoot.add( mesh1 );
   
-     mesh1.visible = false; //hide the image for now
+     //adding the second image - boat top - flip the image  
+  
+     let geometry2 = new THREE.PlaneGeometry(3, 0.6, 1, 1);
+	   let texture2 = loader.load( 'images/scene3/scene3-boatTop-marker.png', render ); 
+	   let material2 = new THREE.MeshBasicMaterial( { map: texture2 } ); 
+	
+	   mesh2 = new THREE.Mesh( geometry2, material2 );
+	   mesh2.position.y = 0.1;
+     mesh2.rotation.x = -Math.PI/2; //rotate so that if faces the screen
+	
+	   markerRoot.add( mesh2 );
+  
+     //adding the third image - boat base - flip the image  
+  
+     let geometry3 = new THREE.PlaneGeometry(2.8, 1, 1, 1);
+	   let texture3 = loader.load( 'images/scene3/scene3-boatBase-marker.png', render ); 
+	   let material3 = new THREE.MeshBasicMaterial( { map: texture3 } ); 
+	
+	   mesh3 = new THREE.Mesh( geometry3, material3 );
+	   mesh3.position.y = 0.1;
+     mesh3.rotation.x = -Math.PI/2; //rotate so that if faces the screen
+	
+	   markerRoot.add( mesh3 );
+  
+  
+     //hide the image for now
+     mesh1.visible = false;
+     mesh2.visible = false;
+     mesh3.visible = false; 
   
 }
 
@@ -139,21 +169,58 @@ function initialize()
 function pickupAndDropoff() 
 {
    //FLAG
+   let pickupFlag = document.getElementById( 'pickupFlag' );
    //pick up a piece
-   if (markerRoot1.position.x > 2.0 && markerRoot1.position.x < 2.5 && markerRoot1.position.y > 0 && markerRoot1.position.y < 1){
-     console.log('DISPLAY');
-     mesh1.visible = true;
-     let pickupFlag = document.getElementById( 'pickupFlag' );
-     pickupFlag.style.display = "none";
+   if (markerRoot.position.x > 2.4 && markerRoot.position.x < 2.8 && markerRoot.position.y > 0 && markerRoot.position.y < 1){
+      console.log('DISPLAY');
+      mesh1.visible = true;
+      pickupFlag.style.display = "none";
    }
-  //drop off a piece
-  if(markerRoot1.position.x > -0.8 && markerRoot1.position.x < -0.3 && markerRoot1.position.y > -0.4 && markerRoot1.position.y < 0.6 ){ //&& markerRoot1.position.z > -7 && markerRoot1.position.z < -5
-       console.log('HIDE');
-       mesh1.visible = false;
-       let dropoffFlag = document.getElementById( 'dropoffFlag' );
-       dropoffFlag.style.display = "block";
-  }
+   //drop off a piece
+   if (pickupFlag.style.display == "none" && markerRoot.position.x > -0.8 && markerRoot.position.x < -0.3 && markerRoot.position.y > -0.4 && markerRoot.position.y < 0.6 && markerRoot.position.z > -8 && markerRoot.position.z < -6){ 
+      //^above code^ checks if the pickupflag img in the background has been disappeared
+      console.log('HIDE');
+      mesh1.visible = false;
+      let dropoffFlag = document.getElementById( 'dropoffFlag' );
+      dropoffFlag.style.display = "block";
+   }
+  
+  
+   //BOAT TOP
+   let pickupBoatTop = document.getElementById( 'pickupBoatTop' );
+   //pick up a piece
+   if (markerRoot.position.x > -0.7 && markerRoot.position.x < 0.7 && markerRoot.position.y > 1.8 && markerRoot.position.y < 2.5){
+      console.log('DISPLAY');
+      mesh2.visible = true;
+      pickupBoatTop.style.display = "none"; 
+   }
+   //drop off a piece
+   if (pickupBoatTop.style.display == "none" && markerRoot.position.x > -0.2 && markerRoot.position.x < 0.2 && markerRoot.position.y > -1 && markerRoot.position.y < -0.8 && markerRoot.position.z > -8 && markerRoot.position.z < -6){ 
+      console.log('HIDE');
+      mesh2.visible = false;
+      let dropoffBoatTop = document.getElementById( 'dropoffBoatTop' );
+      dropoffBoatTop.style.display = "block";
+   }
+  
+  
+   //BOAT BASE
+   let pickupBoatBase = document.getElementById( 'pickupBoatBase' );
+   //pick up a piece
+   if (markerRoot.position.x > -2.8 && markerRoot.position.x < -2.0 && markerRoot.position.y > -0.3 && markerRoot.position.y < 0.3){
+      console.log('DISPLAY');
+      mesh3.visible = true;
+      pickupBoatBase.style.display = "none";
+   }
+   //drop off a piece
+   if (pickupBoatBase.style.display == "none" && markerRoot.position.x > -0.2 && markerRoot.position.x < 0.2 && markerRoot.position.y > -1 && markerRoot.position.y < -0.8 && markerRoot.position.z > -8 && markerRoot.position.z < -6){ 
+      console.log('HIDE');
+      mesh3.visible = false;
+      let dropoffBoatBase = document.getElementById( 'dropoffBoatBase' );
+      dropoffBoatBase.style.display = "block";
+   }
 }
+
+
 
 
 function update()
@@ -166,7 +233,7 @@ function update()
 function render()
 {
 	renderer.render( scene, camera );
-  console.log(markerRoot1.position);
+  console.log(markerRoot.position);
   pickupAndDropoff();
 }
 
@@ -192,22 +259,22 @@ var typewriter = new Typewriter(app, {
     wrapperClassName: TypewriterWrapper
 });
 
-typewriter.typeString('<strong>Thank you ヽ(・∀・)ﾉ</strong> ')
+typewriter.typeString('According to the map we just saw, ')
+    .pauseFor(500)
+    .typeString('my home is in the middle of the ocean 🌊')
     .pauseFor(1000)
     .deleteAll(1)
-    .typeString('I had a map to home...')
-    .pauseFor(1000)
-    .typeString('but I lost it')
+    .typeString('To get there, we need to build a <strong>Boat ⛵</strong>')
     .pauseFor(1000)
     .deleteAll(1)
-    .typeString('But I heard that there is a <strong>key</strong> that will help us get through this adventure!')
+    .typeString('Above, there are 3 pieces of material that could be assembled into a Boat')
     .pauseFor(1000)
     .deleteAll(1)
-    .typeString('Have a look around')
+    .typeString('use the <strong>key</strong> to grab each material and place it in a right place')
     .pauseFor(1000)
     .deleteAll(1)
-    .typeString('Do you see any <strong>key</strong> hidden somewhere in this screen?')
+    .typeString('Ready?')
     .pauseFor(1000)
     .deleteAll(1)
-    .typeString('try to click it and find out what happen!')
+    .typeString('lets build! 🔨')
     .start();
