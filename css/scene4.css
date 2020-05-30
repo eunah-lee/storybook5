@@ -3,7 +3,7 @@
 body 
 {
   /*background-image: url("https://cdn.glitch.com/69b80f7b-d037-4683-a9ca-4bca487042c3%2Ftest%20background.jpg?v=1589064010978");*/
-	background-color: #70db70; /*sets the window background colour*/
+	background-color: #4682B4; /*sets the window background colour*/
 	background-repeat: no-repeat;      /* repeat, no-repeat */
 	background-attachment: fixed;   /* scroll, fixed */
 	background-position: top left;  /* for no-repeat setting: top/bottom, left/right */
@@ -45,6 +45,7 @@ a:hover {
   color: #006400;
 }
 
+/*video background cause too much lagging
 #video {  
   z-index: 0;
   width: 960;
@@ -52,12 +53,12 @@ a:hover {
   position: absolute;
   top: 35px;
   left: 50%;
-  /*centres the screen*/
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 0px;
   margin-left: 240px;
 }
+*/
 
 .next {
   width: 40px;
@@ -73,16 +74,20 @@ a:hover {
 
 #starfish {
   position: absolute;
-  top: 240px;
-  left: 260px;
+  top: 130px;
+  left: 850px;
   display: none;
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
 }
 
-#typeWriter {
-  z-index: 3;
-  position: absolute;
-  top: 540px;
-  left: 270px;
+@keyframes sink { /*animation for sinking effect*/
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
+
+

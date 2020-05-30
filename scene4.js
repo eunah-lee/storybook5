@@ -36,6 +36,9 @@ function initialize()
     // style of ar layer
     renderer.setClearColor(new THREE.Color('white'), 0);//colour, transparancy  //display the background as transparant to use the video beneath in html
     renderer.setSize(myWidth, myHeight);
+    //add jpeg background image and ocean gif as a background //first one goes on top
+    renderer.domElement.style.background = "url('https://cdn.glitch.com/8ec07ef8-4b04-4aa3-aea4-2216a1c9eee7%2Fscene%204%20background.gif?v=1590856428502')";
+    renderer.domElement.style.backgroundSize = "cover"; 
     renderer.domElement.style.position = "absolute";
     renderer.domElement.style.top = "35px";
     renderer.domElement.style.left = "50%";
@@ -116,7 +119,7 @@ function initialize()
 	})
   
   //define a plane geometry that will seat on top of the marker
-  let geometry = new THREE.PlaneGeometry(2, 2, 2);
+  let geometry = new THREE.PlaneGeometry(1, 1.2, 1, 1);
 	let loader = new THREE.TextureLoader();
   
     //Add all the images that the marker will display and use a mesh.visible = true/false; to control
@@ -132,7 +135,7 @@ function initialize()
 	   markerRoot.add( mesh1 );
     
   //add second image - starfish on the boat
-  	 let texture2 = loader.load( 'https://cdn.glitch.com/913f11f7-af89-448f-96fd-d7aec522c4c1%2Fscene4-hiro%20on%20boat.png?v=1590700293980', render );
+  	 let texture2 = loader.load( 'images/scene4/scene4-hiro on boat.png', render );
 	   let material2 = new THREE.MeshBasicMaterial( { map: texture2 } );
 	
 	   mesh2 = new THREE.Mesh( geometry, material2 );
@@ -141,9 +144,35 @@ function initialize()
   
      markerRoot.add( mesh2 );
   
-  mesh1.visible = false; //hide
-  mesh2.visible = true; //visible
+  mesh1.visible = true; //display
+  mesh2.visible = false; //hide
   
+}
+
+//picks up a material when the marker is in the position of the material
+function pickupAndDropoff() 
+{
+   //load starfish image 
+   let starfish = document.getElementById( 'starfish' );
+   //pick up a piece
+   if (markerRoot.position.x > 0.5 && markerRoot.position.x < 1 && markerRoot.position.y > 1.2 && markerRoot.position.y < 1.5){
+      console.log('Pick up Hiro');
+      mesh1.visible = false;
+      mesh2.visible = true;
+      starfish.style.display = "none";
+   }
+   //drop off a piece
+   if (starfish.style.display == "none" && markerRoot.position.x > 2.2 && markerRoot.position.x < 2.5 && markerRoot.position.y > -2 && markerRoot.position.y < -1.5){ 
+      //^above code^ checks if the pickupflag img in the background has been disappeared
+      console.log('HIDE');
+      mesh1.visible = true;
+      mesh2.visible = false;
+      starfish.style.top = "475px";
+      starfish.style.left = "298px";
+      starfish.style.display = "block";
+      starfish.style.animation= "sink 4s";  //sink animation for 5sec (the sink animation code is in css file)
+      starfish.style.webkitAnimationFillMode= "forwards"; //leaves the animation at 100% status
+   }
 }
 
 
@@ -157,23 +186,8 @@ function update()
 function render()
 {
 	renderer.render( scene, camera );
-  position();
-  
-}
-
-function position(){
-  var starfish = document.getElementById("starfish");
-  
-  if (markerRoot.position.x > 1.5){
-    console.log("reached the island");
-    console.log(markerRoot.position);
-    starfish.style.display = 'block'; //change css image to display
-    
-    mesh1.visible = true; //the emptyboat is visible
-    mesh2.visible = false; //hide the starfishontheBoat image
-    
-  }
-  
+  console.log(markerRoot.position);
+  pickupAndDropoff();
 }
 
 function animate()
@@ -184,3 +198,21 @@ function animate()
 	update();
 	render();
 }
+
+//text-plain javascript
+//add subtitle to the scene
+var app = document.getElementById('typewriter');
+
+var typewriter = new Typewriter(app, {
+    loop: true
+});
+
+typewriter.typeString('Hello World!')
+    .pauseFor(2500)
+    .deleteAll()
+    .typeString('Strings can be removed')
+    .pauseFor(2500)
+    .deleteChars(7)
+    .typeString('<strong>altered!</strong>')
+    .pauseFor(2500)
+    .start();

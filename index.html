@@ -6,13 +6,6 @@
   <link rel=stylesheet href="css/scene4.css"/>
   <title> scene #4 </title>
   
-  <!--p5.js-->
-  <meta name="description" content="p5.js on Glitch">
-  <script src="/p5.min.js"></script> 
-  <script src="/p5.dom.js"></script>
-  <script src="/p5.sound.js"></script> 
-  <meta charset="UTF-8">
-  
   <!--MarkerTracking-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
@@ -33,20 +26,27 @@
 	<script src="threex/threex-artoolkitcontext.js"></script>
 	<script src="threex/threex-arbasecontrols.js"></script>
 	<script src="threex/threex-armarkercontrols.js"></script>
+  
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  
 </head>
 
 <body style="margin : 0px; overflow: hidden; font-family: Monospace;">
+  
+   <div id="typewriter"></div>
+
+
 
   <p1>
-   <!--video for background-->
+   <!--video for background NOT IN USE SINCE IT CAUSE TOO MUCH LAG
    <video id="video" autoplay loop crossOrigin="anonymous" webkit-playsinline style="display:block">
    <source src="images/scene4/scene 6.mp4" type="video/mp4; codecs="avc1.42E01E, mp4a.40.2"">
-   </video>
+   </video>-->
     
    <script src = "scene4.js"></script>
     
    
-    <img id = "starfish" src = "images/starfish.png">
+    <img id = "starfish" src = "images/starfish.png" style="display:block">
     
     
   </p1>
