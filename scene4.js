@@ -37,7 +37,7 @@ function initialize()
     renderer.setClearColor(new THREE.Color('white'), 0);//colour, transparancy  //display the background as transparant to use the video beneath in html
     renderer.setSize(myWidth, myHeight);
     //add jpeg background image and ocean gif as a background //first one goes on top
-    renderer.domElement.style.background = "url('https://cdn.glitch.com/8ec07ef8-4b04-4aa3-aea4-2216a1c9eee7%2Fscene%204%20background.gif?v=1590856428502')";
+    renderer.domElement.style.background = "url('images/scene4/scene 4 background.gif')";
     renderer.domElement.style.backgroundSize = "cover"; 
     renderer.domElement.style.position = "absolute";
     renderer.domElement.style.top = "35px";
@@ -201,18 +201,25 @@ function animate()
 
 //text-plain javascript
 //add subtitle to the scene
-var app = document.getElementById('typewriter');
+
+var app = document.getElementById('typeWriter');
+var TypewriterWrapper;
 
 var typewriter = new Typewriter(app, {
-    loop: true
+    loop: false,
+    delay: 80, //writing speed
+    wrapperClassName: TypewriterWrapper
 });
 
-typewriter.typeString('Hello World!')
-    .pauseFor(2500)
-    .deleteAll()
-    .typeString('Strings can be removed')
-    .pauseFor(2500)
-    .deleteChars(7)
-    .typeString('<strong>altered!</strong>')
-    .pauseFor(2500)
+typewriter.typeString('Yeay! we are almost there ')
+    .pauseFor(500)
+    .typeString('Now, show your <strong>key</strong> to the webcam to launch the boat we just built')
+    .pauseFor(1500)
+    .deleteAll(1)
+    .typeString('Then, sail the boat to pick Hiro up from the <strong>island 🏝️</strong>')
+    .pauseFor(1500)
+    .deleteAll(1)
+    .typeString('and when Hiro is on the boat, ')
+    .pauseFor(1000)
+    .typeString('drop hiro off at the <strong>✖️ point</strong>')
     .start();

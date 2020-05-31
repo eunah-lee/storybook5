@@ -37,7 +37,7 @@ var typewriter = new Typewriter(app, {
     wrapperClassName: TypewriterWrapper
 });
 
-typewriter.typeString('<span style = "font-family: Arial, Helvetica, sans-serif"> Hello there 👋 </span>') //inefficient but a way to change font
+typewriter.typeString('Hello there 👋') //inefficient but a way to change font-><span style = "font-family: Arial, Helvetica, sans-serif"> Hello there 👋 </span>
     .pauseFor(1000) //1000 millisecond = 1sec
     //.typeString('<br/>') //next sentance
     .typeString('Im Hiro, a starfish')
