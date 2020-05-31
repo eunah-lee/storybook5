@@ -40,13 +40,13 @@ var typewriter = new Typewriter(app, {
 typewriter.typeString('Hello there 👋 ') //inefficient but a way to change font-><span style = "font-family: Arial, Helvetica, sans-serif"> Hello there 👋 </span>
     .pauseFor(1000) //1000 millisecond = 1sec
     //.typeString('<br/>') //next sentance
-    .typeString('Im Hiro, a starfish')
+    .typeString('Im Hiro, a starfish.')
     .pauseFor(1000)
     .deleteAll(1) //deleting speed(lower=>faster)
     .typeString('I was chillin on a coral in my backyard...')
     .pauseFor(500)
     //.typeString('<br/>')
-    .typeString('and a wave flew me here.')
+    .typeString(' and a wave flew me here.')
     .pauseFor(1000)
     .deleteAll(1)
     .typeString('Could you help me to find my way back home?')

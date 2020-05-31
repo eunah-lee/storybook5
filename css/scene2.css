@@ -2,7 +2,8 @@
 
 body 
 {
-  /*background-image: url("https://cdn.glitch.com/69b80f7b-d037-4683-a9ca-4bca487042c3%2Ftest%20background.jpg?v=1589064010978");*/
+  background-image: url("https://cdn.glitch.com/c0783a8c-b857-418c-8ec6-05c6bddc3049%2Fscene2-HTML-background.png?v=1590953300264");
+  background-size: cover; 
 	background-color: #70db70; /*sets the window background colour*/
 	background-repeat: no-repeat;      /* repeat, no-repeat */
 	background-attachment: fixed;   /* scroll, fixed */
@@ -14,7 +15,8 @@ body
 	font-style: normal;             /* normal, italic */
 	font-variant: normal;           /* normal, small-caps */
 	font-size: 22px;                /* font size */
-	color: #000000;                 /* hexadecimal RGB color code */
+  font-weight: 800;               /* font weight bigger->thicker*/
+	color: #216543;                 /* hexadecimal RGB color code */
 	text-decoration: none;          /* none, underline, overline, line-through */
 	text-align: left;               /* left, right, center, justify */
 }
@@ -42,7 +44,7 @@ a {
 
 a:hover {
   background-color: white;
-  color: #006400;
+  color: #216543;
 }
 
 .yeay {

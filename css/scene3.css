@@ -2,7 +2,8 @@
 
 body 
 {
-  /*background-image: url("https://cdn.glitch.com/69b80f7b-d037-4683-a9ca-4bca487042c3%2Ftest%20background.jpg?v=1589064010978");*/
+  background-image: url("https://cdn.glitch.com/c0783a8c-b857-418c-8ec6-05c6bddc3049%2Fscene3-HTML-background.png?v=1590953305095");
+  background-size: cover; 
 	background-color: #F7AA94; /*sets the window background colour*/
 	background-repeat: no-repeat;      /* repeat, no-repeat */
 	background-attachment: fixed;   /* scroll, fixed */
@@ -13,8 +14,9 @@ body
 	font-weight: normal;            /* normal, bold */
 	font-style: normal;             /* normal, italic */
 	font-variant: normal;           /* normal, small-caps */
+  font-weight: 800;               /* font weight bigger->thicker*/
 	font-size: 22px;                /* font size */
-	color: #000000;                 /* hexadecimal RGB color code */
+	color: #B22222;                 /* hexadecimal RGB color code */
 	text-decoration: none;          /* none, underline, overline, line-through */
 	text-align: left;               /* left, right, center, justify */
 }
@@ -50,14 +52,14 @@ a {
 
 a:hover {
   background-color: white;
-  color: #006400;
+  color: #B22222;
 }
 
 .button {
-  width: 70px;
+  width: 75px;
   position: absolute;
   top: 590px;
-  left: 689px;
+  left: 684px;
   margin: 0 0 0 410px;
   text-align: center;
   background-color: #FF7F50;

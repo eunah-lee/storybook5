@@ -1,0 +1,80 @@
+/*scene5 css*/
+
+body 
+{
+  background-image: url("https://cdn.glitch.com/31d57af0-1015-435b-9a6a-d40fcb04fe9e%2Fscene5-HTML-background.png?v=1590962755189");
+  background-size: cover; 
+	background-color: #4682B4; /*sets the window background colour*/
+	background-repeat: no-repeat;      /* repeat, no-repeat */
+	background-attachment: fixed;   /* scroll, fixed */
+	background-position: top left;  /* for no-repeat setting: top/bottom, left/right */
+	margin: 2% 5% 0% 5%;            /* top, left, bottom, right or TRBL */
+	
+	font-family: 'Indie Flower', cursive;	/* list font names in order of preference */
+	font-weight: normal;            /* normal, bold */
+	font-style: normal;             /* normal, italic */
+	font-variant: normal;           /* normal, small-caps */
+	font-size: 22px;                /* font size */
+  font-weight: 800;               /* font weight bigger->thicker*/
+	color: #CD91E8;                 /* hexadecimal RGB color code */
+	text-decoration: none;          /* none, underline, overline, line-through */
+	text-align: left;               /* left, right, center, justify */
+}
+
+
+
+p1 {
+  position: absolute;
+  z-index: 2;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: white;
+  color: #CD91E8;
+}
+
+.button {
+  width: 160px;
+  position: absolute;
+  top: 590px;
+  left: 598px;
+  margin: 0 0 0 410px;
+  text-align: center;
+  background-color: #61217F;
+  color: white;
+}
+
+#starfish {
+  z-index: 1;
+  position: absolute;
+  top: 415px;
+  left: 680px;
+  display: inline;
+  height: 145px;
+  width: 145px;
+}
+
+#ending {
+  z-index: 1;
+  position: absolute;
+  top: 35px;
+  left: 250px;
+  display: inline;
+  height: 540px;
+  width: 960px;
+}
+
+
+
+#typeWriter {
+  z-index: 3;
+  position: absolute;
+  top: 540px;
+  left: 270px;
+}

@@ -2,7 +2,8 @@
 
 body 
 {
-  /*background-image: url("https://cdn.glitch.com/69b80f7b-d037-4683-a9ca-4bca487042c3%2Ftest%20background.jpg?v=1589064010978");*/
+  background-image: url("https://cdn.glitch.com/31d57af0-1015-435b-9a6a-d40fcb04fe9e%2Fscene4-HTML-background.png?v=1590959089301");
+  background-size: cover; 
 	background-color: #4682B4; /*sets the window background colour*/
 	background-repeat: no-repeat;      /* repeat, no-repeat */
 	background-attachment: fixed;   /* scroll, fixed */
@@ -14,7 +15,8 @@ body
 	font-style: normal;             /* normal, italic */
 	font-variant: normal;           /* normal, small-caps */
 	font-size: 22px;                /* font size */
-	color: #000000;                 /* hexadecimal RGB color code */
+  font-weight: 800;               /* font weight bigger->thicker*/
+	color: #A8C0D8;                 /* hexadecimal RGB color code */
 	text-decoration: none;          /* none, underline, overline, line-through */
 	text-align: left;               /* left, right, center, justify */
 }
@@ -26,14 +28,6 @@ p1 {
   z-index: 2;
 }
 
-.island {
-  z-index: 3;
-  position: absolute;
-  top: 35px;
-  left: 50%;
-  margin: 0 0 0 -480px;
-}
-
 a {
   text-decoration: none;
   display: inline-block;
@@ -42,43 +36,40 @@ a {
 
 a:hover {
   background-color: white;
-  color: #006400;
+  color: #A8C0D8;
 }
 
-/*video background cause too much lagging
-#video {  
-  z-index: 0;
-  width: 960;
-  height: 540;
-  position: absolute;
-  top: 35px;
-  left: 50%;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px;
-  margin-left: 240px;
-}
-*/
-
-.next {
-  width: 40px;
+.button {
+  width: 205px;
   position: absolute;
   top: 590px;
-  left: 50%;
+  left: 554px;
   margin: 0 0 0 410px;
   text-align: center;
-  background-color: #006400;
+  background-color: #191970;
   color: white;
 }
 
 #starfish {
+  z-index: 1;
   position: absolute;
   top: 130px;
   left: 850px;
+  display: inline;
+  height: 50px;
+  width: 50px;
+}
+
+#starfishMoved {
+  z-index: 1;
+  position: absolute;
+  top: 475px;
+  left: 298px;
   display: none;
   height: 50px;
   width: 50px;
 }
+
 
 @keyframes sink { /*animation for sinking effect*/
   0% {
@@ -90,3 +81,9 @@ a:hover {
 }
 
 
+#typeWriter {
+  z-index: 3;
+  position: absolute;
+  top: 540px;
+  left: 270px;
+}

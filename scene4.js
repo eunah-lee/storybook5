@@ -42,8 +42,9 @@ function initialize()
     renderer.domElement.style.position = "absolute";
     renderer.domElement.style.top = "35px";
     renderer.domElement.style.left = "50%";
+    //renderer.domElement.style.opacity = "0.2";
     renderer.domElement.style.margin = '0 0 0 -480px'; //centres the screen
-    renderer.domElement.style.zIndex = "4";//brings the renderer forward sothat it sits on top of the video background
+    //renderer.domElement.style.zIndex = "4";//brings the renderer forward sothat it sits on top of the video background
     renderer.domElement.style.transform = "scaleX(-1)"; //flip the renderer Y axis(so that the user's motion is mirrored)
     //renderer.domElement.style.border = "2px, red";
     document.body.appendChild(renderer.domElement);
@@ -153,25 +154,26 @@ function initialize()
 function pickupAndDropoff() 
 {
    //load starfish image 
-   let starfish = document.getElementById( 'starfish' );
+   let starfishImage = document.getElementById( 'starfish' );
+  
    //pick up a piece
-   if (markerRoot.position.x > 0.5 && markerRoot.position.x < 1 && markerRoot.position.y > 1.2 && markerRoot.position.y < 1.5){
+   if (markerRoot.position.x > -1.5 && markerRoot.position.x < -0.7 && markerRoot.position.y > 1.2 && markerRoot.position.y < 1.5){
       console.log('Pick up Hiro');
       mesh1.visible = false;
       mesh2.visible = true;
-      starfish.style.display = "none";
+      starfishImage.style.display = "none";
    }
+   
    //drop off a piece
-   if (starfish.style.display == "none" && markerRoot.position.x > 2.2 && markerRoot.position.x < 2.5 && markerRoot.position.y > -2 && markerRoot.position.y < -1.5){ 
+   if (mesh2.visible == true && markerRoot.position.x > 2.7 && markerRoot.position.x < 3 && markerRoot.position.y > -2 && markerRoot.position.y < -1.5){ 
       //^above code^ checks if the pickupflag img in the background has been disappeared
       console.log('HIDE');
       mesh1.visible = true;
       mesh2.visible = false;
-      starfish.style.top = "475px";
-      starfish.style.left = "298px";
-      starfish.style.display = "block";
-      starfish.style.animation= "sink 4s";  //sink animation for 5sec (the sink animation code is in css file)
-      starfish.style.webkitAnimationFillMode= "forwards"; //leaves the animation at 100% status
+      let starfishMoved = document.getElementById( 'starfishMoved' );
+      starfishMoved.style.display = "block";
+      starfishMoved.style.animation= "sink 5s";  //sink animation for 5sec (the sink animation code is in css file)
+      starfishMoved.style.webkitAnimationFillMode= "forwards"; //leaves the animation at 100% status
    }
 }
 
@@ -212,14 +214,24 @@ var typewriter = new Typewriter(app, {
 });
 
 typewriter.typeString('Yeay! we are almost there ')
-    .pauseFor(500)
-    .typeString('Now, show your <strong>key</strong> to the webcam to launch the boat we just built')
+    .pauseFor(1000)
+    .deleteAll(1)
+    .typeString('Now, show your <strong>key</strong> to the webcam to launch the boat⛵ we just built!')
     .pauseFor(1500)
     .deleteAll(1)
     .typeString('Then, sail the boat to pick Hiro up from the <strong>island 🏝️</strong>')
     .pauseFor(1500)
     .deleteAll(1)
     .typeString('and when Hiro is on the boat, ')
-    .pauseFor(1000)
+    .pauseFor(500)
     .typeString('drop hiro off at the <strong>✖️ point</strong>')
+    .pauseFor(1000)
+    .deleteAll(1)
+    .typeString('That is where Hiro lives 🏠')
+    .pauseFor(1000)
+    .deleteAll(1)
+    .typeString('Ready?')
+    .pauseFor(1000)
+    .deleteAll(1)
+    .typeString('lets take Hiro home 🌊')
     .start();
