@@ -4,7 +4,7 @@ var arToolkitSource, arToolkitContext;
 
 var markerRoot;
 
-var mesh1, mesh2;
+var mesh1, mesh2, mesh3;
 
 const myWidth = 960;
 const myHeight = 540;

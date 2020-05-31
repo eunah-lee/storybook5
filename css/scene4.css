@@ -9,11 +9,11 @@ body
 	background-position: top left;  /* for no-repeat setting: top/bottom, left/right */
 	margin: 2% 5% 0% 5%;            /* top, left, bottom, right or TRBL */
 	
-	font-family: Georgia, Serif;	/* list font names in order of preference */
+	font-family: 'Indie Flower', cursive;	/* list font names in order of preference */
 	font-weight: normal;            /* normal, bold */
 	font-style: normal;             /* normal, italic */
 	font-variant: normal;           /* normal, small-caps */
-	font-size: 18px;                /* font size */
+	font-size: 22px;                /* font size */
 	color: #000000;                 /* hexadecimal RGB color code */
 	text-decoration: none;          /* none, underline, overline, line-through */
 	text-align: left;               /* left, right, center, justify */
@@ -67,7 +67,6 @@ a:hover {
   left: 50%;
   margin: 0 0 0 410px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
   background-color: #006400;
   color: white;
 }
